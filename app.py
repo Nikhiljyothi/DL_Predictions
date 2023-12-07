@@ -47,17 +47,17 @@ if task == "Sentiment Classification":
         model_option = st.selectbox("Select Model", ("Perceptron", "Backpropagation", "DNN", "RNN", "LSTM"))
 
         if model_option == "Perceptron":
-            with open(r'H:\Deep-learning\Assignment2\Perceptron.pkl', 'rb') as file:
+            with open(r'Perceptron.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "DNN":
-            model = load_model(r'H:\Deep-learning\Assignment2\DNN.keras')
+            model = load_model(r'DNN.keras')
         elif model_option == "Backpropagation":
-            with open(r'H:\Deep-learning\Assignment2\Backprop.pkl', 'rb') as file:
+            with open(r'Backprop.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "RNN":
-            model = load_model(r'H:\Deep-learning\Assignment2\RNN.keras')
+            model = load_model(r'RNN.keras')
         elif model_option == "LSTM":
-            model = load_model(r'H:\Deep-learning\Assignment2\LSTM.keras')
+            model = load_model(r'LSTM.keras')
         else:
             model = load_model(f'{model_option}.keras')
 
@@ -73,7 +73,7 @@ elif task == "Identify Tumors":
     uploaded_file = st.file_uploader("Upload a tumor image...", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        model = load_model(r'H:\Deep-learning\Assignment2\CNN.keras')
+        model = load_model(r'CNN.keras')
         st.image(uploaded_file, caption="Uploaded Image.", use_column_width=False, width=200)
         st.write("")
 
